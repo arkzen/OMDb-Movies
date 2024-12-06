@@ -1,4 +1,4 @@
-package codingtest.iFarmer.omdbmovies.application
+package com.iamAsikur.omdbmovies.application
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate

@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "codingtest.iFarmer.omdbmovies"
+    namespace = "com.iamAsikur.omdbmovies"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "codingtest.iFarmer.omdbmovies"
+        applicationId = "com.iamAsikur.omdbmovies"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

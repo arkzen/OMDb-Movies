@@ -1,4 +1,4 @@
-package codingtest.iFarmer.omdbmovies
+package com.iamAsikur.omdbmovies
 
 import org.junit.Test
 

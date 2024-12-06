@@ -1,8 +1,8 @@
-package codingtest.iFarmer.omdbmovies.networking.di
+package com.iamAsikur.omdbmovies.networking.di
 
 import android.content.Context
-import codingtest.iFarmer.omdbmovies.BuildConfig
-import codingtest.iFarmer.omdbmovies.networking.ApiService
+import com.iamAsikur.omdbmovies.BuildConfig
+import com.iamAsikur.omdbmovies.networking.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
