@@ -1,9 +1,95 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.OmdbMovies" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.OmdbMovies" parent="Theme.Material3.DynamicColors.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorBoulder</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorBoulder</item>
+        <item name="colorOnSecondary">@color/black</item>
     </style>
 
     <style name="Theme.OmdbMovies" parent="Base.Theme.OmdbMovies" />
+
+    <!--region text style-->
+
+    <style name="text_light">
+        <item name="fontFamily">@font/light</item>
+    </style>
+
+
+    <style name="text_regular">
+        <item name="fontFamily">@font/regular</item>
+    </style>
+
+
+    <style name="text_extra_bold">
+        <item name="fontFamily">@font/extra_bold</item>
+    </style>
+
+
+
+
+    <!--color colorBoulder-->
+    <style name="Text.colorBoulder_14sp" parent="text_regular">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/colorBoulder</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Text.colorBoulder_10sp" parent="text_regular">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textColor">@color/colorBoulder</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <!--color white-->
+    <style name="Text.white_14sp" parent="text_regular">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TittleText.white_14sp" parent="text_extra_bold">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+
+    <!--region  Action Btn -->
+    <style name="ButtonShape_secondary">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="GreyButtonOutlinedThemeOverlay">
+        <!--        Enable Color-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
+
+    <style name="Button_Secondary" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">#FBFBFB</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:letterSpacing">-.01</item>
+        <item name="shapeAppearanceOverlay">@style/ButtonShape_secondary</item>
+        <item name="useMaterialThemeColors">false</item>
+        <item name="backgroundTint">@color/default_button_color_tint</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconTint">#FBFBFB</item>
+        <item name="iconGravity">textEnd</item>
+        <item name="minWidth">0dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
