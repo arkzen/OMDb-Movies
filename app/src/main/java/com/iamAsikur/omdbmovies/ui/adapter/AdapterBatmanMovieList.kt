@@ -9,17 +9,17 @@ import com.iamAsikur.omdbmovies.model.Search
 import com.iamAsikur.omdbmovies.utils.Utils
 
 
-class AdapterMovieList(val adapterOnClick: (movieItem: Search) -> Unit) :
-    RecyclerView.Adapter<AdapterMovieList.MovieViewHolder>() {
+class AdapterBatmanMovieList(val adapterOnClick: (movieItem: Search) -> Unit) :
+    RecyclerView.Adapter<AdapterBatmanMovieList.BatmanMovieViewHolder>() {
 
     private var movieList = ArrayList<Search>(emptyList())
 
-    class MovieViewHolder(val binding: ItemMovieBinding) :
+    class BatmanMovieViewHolder(val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BatmanMovieViewHolder {
+        return BatmanMovieViewHolder(
             ItemMovieBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -32,7 +32,7 @@ class AdapterMovieList(val adapterOnClick: (movieItem: Search) -> Unit) :
         return movieList.size
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BatmanMovieViewHolder, position: Int) {
 
         val movieItem = movieList[position]
         holder.binding.apply {

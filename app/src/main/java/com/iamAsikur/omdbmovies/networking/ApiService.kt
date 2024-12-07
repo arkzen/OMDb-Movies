@@ -12,6 +12,15 @@ interface ApiService {
     @GET("/")
     suspend fun getMovieList(
         @Query("s") movieType: String,
+        @Query("page") page: Int,
+        @Query("apikey") apiKey: String = BuildConfig.API_KEY
+    ): MovieListResponse
+
+    @GET("/")
+    suspend fun getMovieList(
+        @Query("s") movieType: String,
+        @Query("y") y: Int,
+        @Query("page") page: Int,
         @Query("apikey") apiKey: String = BuildConfig.API_KEY
     ): MovieListResponse
 

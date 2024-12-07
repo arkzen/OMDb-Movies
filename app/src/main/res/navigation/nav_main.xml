@@ -12,10 +12,21 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_listingFragment"
-            app:destination="@id/listingFragment" />
+            app:destination="@id/listingFragment">
+            <argument
+                android:name="searchQuery"
+                app:argType="String"
+                app:nullable="false" />
+        </action>
         <action
             android:id="@+id/action_homeFragment_to_contentFragment"
-            app:destination="@id/contentFragment" />
+            app:destination="@id/contentFragment">
+            <argument
+                android:name="movieItem"
+                app:argType="com.iamAsikur.omdbmovies.model.Search"
+                app:nullable="false" />
+        </action>
+
     </fragment>
     <fragment
         android:id="@+id/listingFragment"
@@ -30,5 +41,10 @@
         android:id="@+id/contentFragment"
         android:name="com.iamAsikur.omdbmovies.ui.content.ContentFragment"
         android:label="fragment_content"
-        tools:layout="@layout/fragment_content" />
+        tools:layout="@layout/fragment_content">
+        <argument
+            android:name="movieItem"
+            app:argType="com.iamAsikur.omdbmovies.model.Search"
+            app:nullable="false" />
+    </fragment>
 </navigation>

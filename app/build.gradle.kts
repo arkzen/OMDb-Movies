@@ -57,6 +57,7 @@ dependencies {
     val lifecycle_version = "2.6.2"
     val retrofit_version = "2.9.0"
     val coroutine_version = "1.7.3"
+    val glide_version = "4.13.1"
 
     implementation(libs.androidx.hilt.common)
     implementation(libs.androidx.core.ktx)
@@ -77,6 +78,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.activity:activity-ktx:1.8.1")
+    implementation ("androidx.fragment:fragment-ktx:1.8.5")
 
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version")
@@ -87,4 +89,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("com.squareup.retrofit2:converter-scalars:$retrofit_version")
+
+    //image loader
+    implementation ("com.github.bumptech.glide:glide:$glide_version")
+    annotationProcessor ("com.github.bumptech.glide:compiler:$glide_version")
 }

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
@@ -39,6 +41,23 @@ abstract class CoreBaseFragment< VB : ViewBinding> : Fragment() {
         setupObserver()
         setupUI()
         callInitialApi()
+    }
+
+    protected fun showProgressBar(isLoading: Boolean, view: View) {
+        if (isLoading) {
+            view.visibility = View.VISIBLE
+            requireActivity().window?.setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
+        } else {
+            view.visibility = View.GONE
+            requireActivity().window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        }
+    }
+
+    protected fun showToastMessage(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
 }

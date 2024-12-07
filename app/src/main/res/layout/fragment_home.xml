@@ -70,10 +70,10 @@
                 android:id="@+id/rvBatmanMovieList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_movie"
-                tools:itemCount="10"
+                android:layout_marginVertical="@dimen/_12sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_marginVertical="@dimen/_12sdp" />
+                tools:itemCount="10"
+                tools:listitem="@layout/item_movie" />
 
             <View
                 android:layout_width="match_parent"
@@ -120,4 +120,12 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

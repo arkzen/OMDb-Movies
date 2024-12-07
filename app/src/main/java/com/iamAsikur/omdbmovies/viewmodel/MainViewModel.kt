@@ -21,18 +21,34 @@ class MainViewModel @Inject constructor(
     val movieList: LiveData<ResultState<MovieListResponse>> = _movieList
 
 
+   private val _batmanMovieList = MutableLiveData<ResultState<MovieListResponse>>()
+    val batmanMovieList: LiveData<ResultState<MovieListResponse>> = _batmanMovieList
+
+
     private val _movieDetails = MutableLiveData<ResultState<MovieDetailsResponse>>()
     val movieDetails: LiveData<ResultState<MovieDetailsResponse>> = _movieDetails
 
 
-    fun fetchMovieList(movieType: String) {
+    fun fetchMovieList(movieType: String,year:Int,page:Int) {
         viewModelScope.launch {
             _movieList.value = ResultState.Loading
             try {
-                val response = repository.getMovieList(movieType)
+                val response = repository.getMovieList(movieType,year,page)
                 _movieList.value = ResultState.Success(response)
             } catch (e: Exception) {
                 _movieList.value = ResultState.Error(e.localizedMessage ?: "An error occurred")
+            }
+        }
+    }
+
+    fun fetchBatmanMovieList(movieType: String,page:Int) {
+        viewModelScope.launch {
+            _movieList.value = ResultState.Loading
+            try {
+                val response = repository.getMovieList(movieType,page)
+                _batmanMovieList.value = ResultState.Success(response)
+            } catch (e: Exception) {
+                _batmanMovieList.value = ResultState.Error(e.localizedMessage ?: "An error occurred")
             }
         }
     }
