@@ -58,6 +58,7 @@ dependencies {
     val retrofit_version = "2.9.0"
     val coroutine_version = "1.7.3"
     val glide_version = "4.13.1"
+    val exoplayer_version = "2.19.1"
 
     implementation(libs.androidx.hilt.common)
     implementation(libs.androidx.core.ktx)
@@ -94,6 +95,7 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:$glide_version")
     annotationProcessor ("com.github.bumptech.glide:compiler:$glide_version")
 
-    //image slider
-    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    //exoplayer
+    implementation ("com.google.android.exoplayer:exoplayer:$exoplayer_version")
+
 }
