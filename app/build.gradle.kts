@@ -93,4 +93,7 @@ dependencies {
     //image loader
     implementation ("com.github.bumptech.glide:glide:$glide_version")
     annotationProcessor ("com.github.bumptech.glide:compiler:$glide_version")
+
+    //image slider
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 }

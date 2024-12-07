@@ -15,7 +15,7 @@
             app:destination="@id/listingFragment">
             <argument
                 android:name="searchQuery"
-                app:argType="String"
+                app:argType="string"
                 app:nullable="false" />
         </action>
         <action
