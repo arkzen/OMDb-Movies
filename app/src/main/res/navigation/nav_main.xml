@@ -33,9 +33,18 @@
         android:name="com.iamAsikur.omdbmovies.ui.listing.ListingFragment"
         android:label="fragment_listing"
         tools:layout="@layout/fragment_listing">
+        <argument
+            android:name="searchQuery"
+            app:argType="string"
+            app:nullable="false" />
         <action
             android:id="@+id/action_listingFragment_to_contentFragment"
-            app:destination="@id/contentFragment" />
+            app:destination="@id/contentFragment" >
+            <argument
+                android:name="movieItem"
+                app:argType="com.iamAsikur.omdbmovies.model.Search"
+                app:nullable="false" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/contentFragment"
