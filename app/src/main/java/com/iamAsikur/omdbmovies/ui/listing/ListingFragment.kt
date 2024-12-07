@@ -82,6 +82,9 @@ class ListingFragment : CoreBaseFragment<FragmentListingBinding>() {
 
                 is ResultState.Success -> {
                     showProgressBar(false, binding.progressBar)
+                    if (state.data.Response!=="True"){
+                        nextPageState=false
+                    }
                     mMovieListAdapter.updateMovieList(state.data.Search)
 
                 }

@@ -1,6 +1,7 @@
 package com.iamAsikur.omdbmovies.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MovieListResponse(
 
@@ -18,4 +19,4 @@ data class Search(
     @SerializedName("Type") var Type: String? = null,
     @SerializedName("Poster") var Poster: String? = null
 
-)
+): Serializable
