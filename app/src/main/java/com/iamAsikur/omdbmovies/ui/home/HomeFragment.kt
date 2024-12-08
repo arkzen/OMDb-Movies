@@ -62,8 +62,8 @@ class HomeFragment : CoreBaseFragment<FragmentHomeBinding>() {
     }
 
     override fun callInitialApi() {
-        viewModel.fetchBatmanMovieList("Batman", 1)
         viewModel.fetchMovieList("horror", 2022, 1)
+        viewModel.fetchBatmanMovieList("Batman", 1)
     }
 
     override fun setupObserver() {

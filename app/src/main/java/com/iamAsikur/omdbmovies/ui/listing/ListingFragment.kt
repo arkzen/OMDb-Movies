@@ -1,4 +1,5 @@
 package com.iamAsikur.omdbmovies.ui.listing
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,7 +22,8 @@ class ListingFragment : CoreBaseFragment<FragmentListingBinding>() {
     private val args: ListingFragmentArgs by navArgs()
     lateinit var mMovieListAdapter: AdapterMovieList
     private var page=1
-    private var nextPageState=true
+    private var isLastPage=false
+    private var isLoading=false
     private var searchQuery=""
 
     override fun getViewBinding(): FragmentListingBinding {
@@ -47,23 +49,20 @@ class ListingFragment : CoreBaseFragment<FragmentListingBinding>() {
               rvMovieList.adapter = mMovieListAdapter
           }
 
-
           rvMovieList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
               override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                   super.onScrolled(recyclerView, dx, dy)
 
-                  if (dy > 0) {
-                      val layoutManager = recyclerView.layoutManager as GridLayoutManager
+                  val layoutManager = recyclerView.layoutManager as GridLayoutManager
+                  val visibleItemCount = layoutManager.childCount
+                  val totalItemCount = layoutManager.itemCount
+                  val firstVisibleItem = layoutManager.findFirstVisibleItemPosition()
 
-                      val visibleItemCount = layoutManager.childCount
-                      val totalItemCount = layoutManager.itemCount
-                      val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
-
-                      if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount &&
-                          firstVisibleItemPosition >= 0) {
-                         if (nextPageState){
-                             viewModel.fetchBatmanMovieList(searchQuery, page++)
-                         }
+                  if (!isLoading && !isLastPage) {
+                      if ((visibleItemCount + firstVisibleItem) >= totalItemCount) {
+                          isLoading = true
+                          page++
+                          viewModel.fetchBatmanMovieList(searchQuery, page)
                       }
                   }
               }
@@ -82,14 +81,16 @@ class ListingFragment : CoreBaseFragment<FragmentListingBinding>() {
 
                 is ResultState.Success -> {
                     showProgressBar(false, binding.progressBar)
+                    isLoading=false
                     if (state.data.Response!=="True"){
-                        nextPageState=false
+                        isLastPage=true
                     }
                     mMovieListAdapter.updateMovieList(state.data.Search)
 
                 }
 
                 is ResultState.Error -> {
+                    isLoading=false
                     showProgressBar(false, binding.progressBar)
                     showToastMessage(state.message)
                 }

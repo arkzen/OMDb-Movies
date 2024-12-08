@@ -71,9 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_12sdp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="10"
-                tools:listitem="@layout/item_movie" />
+                />
 
             <View
                 android:layout_width="match_parent"
